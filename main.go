@@ -8,16 +8,13 @@ import (
 )
 
 func main() {
-	var debug bool
-
-	flag.BoolVar(&debug, "debug", false, "set to true to run the provider with support for debuggers like delve")
-	flag.Parse()
-
 	opts := &plugin.ServeOpts{
-		Debug:        debug,
 		ProviderAddr: "app.terraform.io/bmhughes-net/graylog",
 		ProviderFunc: graylog.Provider,
 	}
+
+	flag.BoolVar(&opts.Debug, "debug", false, "set to true to run the provider with support for debuggers like delve")
+	flag.Parse()
 
 	plugin.Serve(opts)
 }

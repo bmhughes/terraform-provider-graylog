@@ -13,14 +13,17 @@ import (
 	"github.com/bmhughes/terraform-provider-graylog/graylog/resource/stream"
 	"github.com/bmhughes/terraform-provider-graylog/graylog/resource/stream/alarmcallback"
 	"github.com/bmhughes/terraform-provider-graylog/graylog/resource/stream/alert/condition"
-	streamOutput "github.com/bmhughes/terraform-provider-graylog/graylog/resource/stream/output"
-	streamRule "github.com/bmhughes/terraform-provider-graylog/graylog/resource/stream/rule"
+	streamoutput "github.com/bmhughes/terraform-provider-graylog/graylog/resource/stream/output"
+	streamrule "github.com/bmhughes/terraform-provider-graylog/graylog/resource/stream/rule"
 	"github.com/bmhughes/terraform-provider-graylog/graylog/resource/system/grok"
 	"github.com/bmhughes/terraform-provider-graylog/graylog/resource/system/indices/indexset"
 	"github.com/bmhughes/terraform-provider-graylog/graylog/resource/system/input"
 	"github.com/bmhughes/terraform-provider-graylog/graylog/resource/system/input/extractor"
 	"github.com/bmhughes/terraform-provider-graylog/graylog/resource/system/input/staticfield"
 	"github.com/bmhughes/terraform-provider-graylog/graylog/resource/system/ldap/setting"
+	"github.com/bmhughes/terraform-provider-graylog/graylog/resource/system/lookup/lookupcache"
+	"github.com/bmhughes/terraform-provider-graylog/graylog/resource/system/lookup/lookupdataadapter"
+	"github.com/bmhughes/terraform-provider-graylog/graylog/resource/system/lookup/lookuptable"
 	"github.com/bmhughes/terraform-provider-graylog/graylog/resource/system/output"
 	"github.com/bmhughes/terraform-provider-graylog/graylog/resource/system/pipeline/connection"
 	"github.com/bmhughes/terraform-provider-graylog/graylog/resource/system/pipeline/pipeline"
@@ -43,6 +46,9 @@ var resourceMap = map[string]*schema.Resource{
 	"graylog_input":                      input.Resource(),
 	"graylog_input_static_fields":        staticfield.Resource(),
 	"graylog_ldap_setting":               setting.Resource(),
+	"graylog_lookup_data_adapter":        lookupdataadapter.Resource(),
+	"graylog_lookup_cache":               lookupcache.Resource(),
+	"graylog_lookup_table":               lookuptable.Resource(),
 	"graylog_output":                     output.Resource(),
 	"graylog_pipeline":                   pipeline.Resource(),
 	"graylog_pipeline_connection":        connection.Resource(),
@@ -52,8 +58,8 @@ var resourceMap = map[string]*schema.Resource{
 	"graylog_sidecar_collector":          collector.Resource(),
 	"graylog_sidecar_configuration":      configuration.Resource(),
 	"graylog_stream":                     stream.Resource(),
-	"graylog_stream_output":              streamOutput.Resource(),
-	"graylog_stream_rule":                streamRule.Resource(),
+	"graylog_stream_output":              streamoutput.Resource(),
+	"graylog_stream_rule":                streamrule.Resource(),
 	"graylog_user":                       user.Resource(),
 	// TODO support view
 	// "graylog_view":                       view.Resource(),

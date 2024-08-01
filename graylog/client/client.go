@@ -15,14 +15,17 @@ import (
 	"github.com/bmhughes/terraform-provider-graylog/graylog/client/stream"
 	"github.com/bmhughes/terraform-provider-graylog/graylog/client/stream/alarmcallback"
 	"github.com/bmhughes/terraform-provider-graylog/graylog/client/stream/alert/condition"
-	streamOutput "github.com/bmhughes/terraform-provider-graylog/graylog/client/stream/output"
-	streamRule "github.com/bmhughes/terraform-provider-graylog/graylog/client/stream/rule"
+	streamoutput "github.com/bmhughes/terraform-provider-graylog/graylog/client/stream/output"
+	streamrule "github.com/bmhughes/terraform-provider-graylog/graylog/client/stream/rule"
 	"github.com/bmhughes/terraform-provider-graylog/graylog/client/system/grok"
 	"github.com/bmhughes/terraform-provider-graylog/graylog/client/system/indices/indexset"
 	"github.com/bmhughes/terraform-provider-graylog/graylog/client/system/input"
 	"github.com/bmhughes/terraform-provider-graylog/graylog/client/system/input/extractor"
 	"github.com/bmhughes/terraform-provider-graylog/graylog/client/system/input/staticfield"
 	"github.com/bmhughes/terraform-provider-graylog/graylog/client/system/ldap/setting"
+	lookupcache "github.com/bmhughes/terraform-provider-graylog/graylog/client/system/lookup/cache"
+	lookupdataadapter "github.com/bmhughes/terraform-provider-graylog/graylog/client/system/lookup/dataadapter"
+	lookuptable "github.com/bmhughes/terraform-provider-graylog/graylog/client/system/lookup/table"
 	"github.com/bmhughes/terraform-provider-graylog/graylog/client/system/output"
 	"github.com/bmhughes/terraform-provider-graylog/graylog/client/system/pipeline/connection"
 	"github.com/bmhughes/terraform-provider-graylog/graylog/client/system/pipeline/pipeline"
@@ -49,6 +52,9 @@ type Client struct {
 	Input                   input.Client
 	InputStaticField        staticfield.Client
 	LDAPSetting             setting.Client
+	LookupCache             lookupcache.Client
+	LookupDataAdapter       lookupdataadapter.Client
+	LookupTable             lookuptable.Client
 	Output                  output.Client
 	Pipeline                pipeline.Client
 	PipelineConnection      connection.Client
@@ -57,8 +63,8 @@ type Client struct {
 	Sidecar                 sidecar.Client
 	SidecarConfiguration    configuration.Client
 	Stream                  stream.Client
-	StreamOutput            streamOutput.Client
-	StreamRule              streamRule.Client
+	StreamOutput            streamoutput.Client
+	StreamRule              streamrule.Client
 	View                    view.Client
 	User                    user.Client
 }
@@ -122,6 +128,15 @@ func New(m interface{}) (Client, error) {
 		LDAPSetting: setting.Client{
 			Client: httpClient,
 		},
+		LookupCache: lookupcache.Client{
+			Client: httpClient,
+		},
+		LookupDataAdapter: lookupdataadapter.Client{
+			Client: httpClient,
+		},
+		LookupTable: lookuptable.Client{
+			Client: httpClient,
+		},
 		Output: output.Client{
 			Client: httpClient,
 		},
@@ -146,10 +161,10 @@ func New(m interface{}) (Client, error) {
 		Stream: stream.Client{
 			Client: httpClient,
 		},
-		StreamOutput: streamOutput.Client{
+		StreamOutput: streamoutput.Client{
 			Client: httpClient,
 		},
-		StreamRule: streamRule.Client{
+		StreamRule: streamrule.Client{
 			Client: httpClient,
 		},
 		View: view.Client{
