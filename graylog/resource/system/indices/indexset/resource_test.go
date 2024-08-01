@@ -7,10 +7,10 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/bmhughes/terraform-provider-graylog/graylog/testutil"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/stretchr/testify/require"
 	"github.com/suzuki-shunsuke/flute/v2/flute"
-	"github.com/terraform-provider-graylog/terraform-provider-graylog/graylog/testutil"
 )
 
 func TestAccIndexSet(t *testing.T) {

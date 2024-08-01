@@ -1,7 +1,7 @@
 # Resource: graylog_sidecar_collector
 
-* [Example](https://github.com/terraform-provider-graylog/terraform-provider-graylog/blob/master/examples/v0.12/sidecar_collector.tf)
-* [Source Code](https://github.com/terraform-provider-graylog/terraform-provider-graylog/blob/master/graylog/resource/sidecar/collector/resource.go)
+* [Example](https://github.com/bmhughes/terraform-provider-graylog/blob/master/examples/v0.12/sidecar_collector.tf)
+* [Source Code](https://github.com/bmhughes/terraform-provider-graylog/blob/master/graylog/resource/sidecar/collector/resource.go)
 
 ## Argument Reference
 
@@ -24,4 +24,3 @@ None.
 ```console
 $ terraform import graylog_sidecar_collector.test 5c4acaefc9e77bbbbbbbbbbb
 ```
-

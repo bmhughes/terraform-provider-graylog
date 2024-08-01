@@ -3,8 +3,8 @@ package input
 import (
 	"context"
 
+	"github.com/bmhughes/terraform-provider-graylog/graylog/convert"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/terraform-provider-graylog/terraform-provider-graylog/graylog/convert"
 )
 
 const schemaVersion = 1
