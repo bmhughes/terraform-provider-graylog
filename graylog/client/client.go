@@ -33,7 +33,7 @@ import (
 	"github.com/bmhughes/terraform-provider-graylog/graylog/client/user"
 	"github.com/bmhughes/terraform-provider-graylog/graylog/client/view"
 	"github.com/bmhughes/terraform-provider-graylog/graylog/config"
-	"github.com/suzuki-shunsuke/go-httpclient/httpclient"
+	"github.com/bmhughes/terraform-provider-graylog/graylog/httpclient"
 )
 
 type Client struct {
